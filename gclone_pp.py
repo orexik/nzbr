@@ -66,7 +66,7 @@ if status == 'SUCCESS':
         'INFO', f'Commencing upload of "{down_nzb_name}" to "{remote_name}"')
     gclone(
         f'gclone move "{nzb_down_dir}" "{nzb_upload_dir}" ' + \
-        '-v --stats=1s --stats-one-line')
+        '-v --stats=2s --exclude _unpack/** --exclude *.rar --exclude *.txt --delete-empty-src-dirs --drive-chunk-size=64M --fast-list --transfers=10 --stats-one-line')
     sys.exit(93)
 
 elif status == 'WARNING':
